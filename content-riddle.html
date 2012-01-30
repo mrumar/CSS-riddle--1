@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marzena's test</title>
+	<meta content="charset=utf-8" />
+	<style>
+		.wrapper{
+			position:relative;
+		}
+		img[data-small=true] + div {
+			border:1px dashed red;
+			padding:10px;
+		}
+
+		img[data-small=true] + div::after {
+			
+			/* this works fine: */
+			content: attr(data-large-src);
+			/* and this as well: */
+			/*content: url(http://placekitten.com/450/330);*/
+			
+			/* But what I would like to do is to combine those two methinds together and make sth like this work: */
+			content: url(attr(data-large-src));
+			
+			/* offcourse it doesn't work now - does anybody has an idea how to obtain such effect with CSS only? no JS */
+		}
+		
+	
+	</style>
+</head>
+
+<body>
+	<article class="wrapper">
+			<img src="http://placekitten.com/g/250/210" data-small="true" id="kittenImg" />
+			<div id="example1" data-large-src="http://placekitten.com/g/550/700">lorem ipsum</div>
+	</article>
+</body>
+</html>
